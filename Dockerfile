@@ -6,6 +6,8 @@ RUN npm set progress=false && \
     npm install -g --progress=false yarn  && \
     yarn global add firebase-tools  && \
     yarn global add netlify-cli && \
+    yarn global add phantomjs-prebuilt && \
+    apt-get update && \
     apt-get -y install default-jre
     
 WORKDIR /workspace
