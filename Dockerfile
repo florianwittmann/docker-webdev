@@ -8,11 +8,13 @@ RUN npm set progress=false && \
     yarn global add netlify-cli && \
     yarn global add phantomjs-prebuilt && \
     apt-get update && \
-    apt-get -y install default-jre xvfb chromium
+    apt-get -y install default-jre xvfb && \
+    apt-get install -y libappindicator1 fonts-liberation && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome*.deb
     
 ADD xvfb-chromium /usr/bin/xvfb-chromium
 RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
 RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser    
-    
     
 WORKDIR /workspace
