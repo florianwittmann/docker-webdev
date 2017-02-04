@@ -2,16 +2,17 @@ FROM node:latest
 
 MAINTAINER Florian Wittmann <dev@florianwittmann.de>
 
-RUN npm set progress=false && \
-    npm install -g --progress=false yarn  && \
-    yarn global add firebase-tools  && \
-    yarn global add netlify-cli && \
-    yarn global add phantomjs-prebuilt && \
-    apt-get update && \
-    apt-get -y install default-jre xvfb && \
-    apt-get install -y libappindicator1 fonts-liberation && \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome*.deb
+RUN npm set progress=false
+RUN npm install -g --progress=false yarn 
+RUN yarn global add firebase-tools
+RUN yarn global add netlify-cli
+RUN yarn global add phantomjs-prebuilt
+
+RUN apt-get update
+RUN apt-get -y install default-jre xvfb
+RUN apt-get install -y libappindicator1 fonts-liberation libpango1.0-0 libxss1 xdg-utils
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome*.deb
     
 ADD xvfb-chromium /usr/bin/xvfb-chromium
 RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
