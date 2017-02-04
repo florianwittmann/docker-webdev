@@ -15,7 +15,13 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN dpkg -i google-chrome*.deb
     
 ADD xvfb-chromium /usr/bin/xvfb-chromium
+
+RUN mv /usr/bin/google-chrome /usr/bin/google-chrome-unwrapped
 RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
-RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser    
-    
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser 
+RUN chmod +777 /usr/bin/google-chrome
+RUN chmod +777 /usr/bin/xvfb-chromium
+RUN chmod +777 /usr/bin/chromium-browser
+RUN chmod +777 /usr/bin/google-chrome-unwrapped
+
 WORKDIR /workspace
