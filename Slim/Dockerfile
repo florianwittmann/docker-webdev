@@ -9,6 +9,7 @@ RUN npm set progress=false && \
     yarn global add phantomjs-prebuilt && \
     apt-get update && \
     apt-get -y install default-jre && \
-    apt-get -y install sed
+    apt-get -y install sed && \
+    apt-get -y install bzip2
     
 WORKDIR /workspace
