@@ -8,6 +8,7 @@ RUN npm set progress=false && \
     yarn global add netlify-cli && \
     yarn global add phantomjs-prebuilt && \
     apt-get update && \
-    apt-get -y install default-jre
+    apt-get -y install default-jre && \
+    apt-get -y install sed
     
 WORKDIR /workspace
