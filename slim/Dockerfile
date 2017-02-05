@@ -8,7 +8,7 @@ RUN yarn global add firebase-tools
 RUN yarn global add netlify-cli
 
 RUN apt-get update
-RUN apt-get -y install xvfb chromium libappindicator1 fonts-liberation
+RUN apt-get -y install default-jre xvfb chromium libappindicator1 fonts-liberation
 
 ADD xvfb-chromium /usr/bin/xvfb-chromium
 
