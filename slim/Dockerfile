@@ -2,8 +2,6 @@ FROM node:slim
 
 MAINTAINER Florian Wittmann <dev@florianwittmann.de>
 
-RUN npm set progress=false
-RUN npm install -g --progress=false yarn 
 RUN yarn global add firebase-tools
 RUN yarn global add netlify-cli
 
